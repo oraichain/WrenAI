@@ -71,7 +71,7 @@ services:
       WREN_PRODUCT_VERSION: ${WREN_PRODUCT_VERSION}
 
     ports:
-      - ${WREN_UI_PORT}:3000
+      - 3001:3000
     volumes:
       - ./etc:/app/data
     networks:

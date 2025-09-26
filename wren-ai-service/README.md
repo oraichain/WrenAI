@@ -18,8 +18,6 @@ Please read the [documentation](https://docs.getwren.ai/oss/concept/wren_ai_serv
    curl -sSL https://install.python-poetry.org | python3 - --version 1.8.3
    ```
 
-3. **Just**: Install [Just](https://github.com/casey/just?tab=readme-ov-file#packages) command runner (version 1.36 or higher)
-
 ### Step-by-Step Setup
 
 1. **Install Dependencies**:
@@ -31,12 +29,12 @@ Please read the [documentation](https://docs.getwren.ai/oss/concept/wren_ai_serv
 2. **Generate Configuration Files**:
 
    ```bash
-   just init
+   make init
    ```
 
-   This creates both `.env.dev` and `config.yaml`. Use `just init --non-dev` to generate only `config.yaml`.
+   This creates both `.env.dev` and `config.yaml`. Use `make init --non-dev` to generate only `config.yaml`.
 
-    > For Windows, add the line `set shell:= ["bash", "-cu"]` at the start of the Justfile.
+    > For Windows, add the line `set shell:= ["bash", "-cu"]` at the start of the Makefile.
 
 4. **Configure Environment**:
 
@@ -61,7 +59,7 @@ Please read the [documentation](https://docs.getwren.ai/oss/concept/wren_ai_serv
 6. **Run Tests** (optional):
 
    ```bash
-   just test
+   make test
    ```
 
 ### Starting the Service
@@ -69,13 +67,13 @@ Please read the [documentation](https://docs.getwren.ai/oss/concept/wren_ai_serv
 1. **Start Required Containers**:
 
    ```bash
-   just up
+   make up
    ```
 
 2. **Launch the AI Service**:
 
    ```bash
-   just start
+   make start
    ```
 
 3. **Access the Service**:
@@ -87,7 +85,7 @@ Please read the [documentation](https://docs.getwren.ai/oss/concept/wren_ai_serv
    When finished, stop the containers:
 
    ```bash
-   just down
+   make down
    ```
 
 This setup ensures a consistent development environment and helps maintain code quality through pre-commit hooks and tests. Follow these steps to get started with local development of the Wren AI Service.
@@ -104,9 +102,9 @@ For a comprehensive understanding of how to evaluate the pipelines, please refer
   - setup `DATASET_NAME` in `.env.dev`
   - adjust test config if needed
     - adjust user count in `tests/locust/config_users.json`
-  - in wren-ai-service folder, run `just up` to start the docker containers
-  - in wren-ai-service folder, run `just start` to start the ai service
-  - run `just load-test`
+  - in wren-ai-service folder, run `make up` to start the docker containers
+  - in wren-ai-service folder, run `make start` to start the ai service
+  - run `make load-test`
   - check reports in /outputs/locust folder, there are 3 files with filename **locust*report*{test_timestamp}**:
     - .json: test report in json format, including info like llm provider, version
     - .html: test report in html format, showing tables and charts

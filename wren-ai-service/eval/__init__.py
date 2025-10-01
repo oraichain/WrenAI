@@ -6,7 +6,7 @@ from src.config import Settings
 
 SPIDER_DESTINATION_PATH = Path("./tools/dev/etc/spider1.0")
 BIRD_DESTINATION_PATH = Path("./tools/dev/etc/bird")
-WREN_ENGINE_API_URL = "http://localhost:8080"
+WREN_ENGINE_API_URL = "http://localhost:8000"
 EVAL_DATASET_DESTINATION_PATH = Path("./eval/dataset")
 
 

@@ -48,9 +48,18 @@ def remove_limit_statement(sql: str) -> str:
 
     return modified_sql
 
+def preprocess_sql(sql: str) -> str:
+    mapper = {
+        "`": "\"",
+        "DATETIME()": "CURRENT_TIMESTAMP()",
+    }
+    for k, v in mapper.items():
+        sql = sql.replace(k, v)
+    return sql
 
 def add_quotes(sql: str) -> Tuple[str, str]:
     try:
+        sql = preprocess_sql(sql)
         quoted_sql = sqlglot.transpile(
             sql,
             read=None,

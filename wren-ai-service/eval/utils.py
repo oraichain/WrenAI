@@ -157,8 +157,8 @@ async def get_contexts_from_sql(
         timeout: float = 300,
     ) -> List[dict]:
         sql = sql.rstrip(";") if sql.endswith(";") else sql
-        quoted_sql, no_error = add_quotes(sql)
-        if not no_error:
+        quoted_sql, error = add_quotes(sql)
+        if error:
             print(f"Error in quoting SQL: {sql}")
             quoted_sql = sql
 
